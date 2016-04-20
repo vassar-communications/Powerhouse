@@ -1,0 +1,206 @@
+@import "_imports";
+
+/*	COLOR
+	===== */
+
+a,
+.u-ArticleListItem__label--dateline {
+	/*link-colors($normal, $hover, $active, $visited, $focus)*/
+	@include link-colors($linkColor, $linkColorHoverFocus, $linkColorActive, $linkColorVisited, $linkColorHoverFocus);
+	text-decoration: none;
+	border-bottom: 1px solid $linkBorderColor;
+	padding-bottom: 0;
+}
+a:hover,
+a:focus {
+	border-bottom: 1px solid $linkColor;
+}
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+	@include link-colors(#fff, #fff, $linkColor, #fff, #fff);
+	border-bottom: 1px solid $linkBorderColor;
+	padding-bottom: 0;
+}
+.u-VCard--site a.u-VCard__org,
+.u-VCard--site a.u-VCard__item,
+.u-VCard--site a.u-List__item,
+.u-VCard--site .u-VCard__item--building {
+	@include link-colors($fontColor, #fff, $linkColorActive, $fontColor, #fff);
+	border-bottom: 1px solid $linkBorderColor;
+	padding-bottom: 0;
+}
+.u-VCard--site .u-VCard__item--building:hover, 
+.u-VCard--site .u-VCard__item--building:focus,
+.u-NavSite__item:hover,
+.u-NavSite__item:focus {
+	border-bottom: none;
+}
+
+h2, h3, h4, h5, h6 {
+	color: #fff;
+}
+h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover,
+h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus,
+.u-VCard--site a.u-VCard__org:hover,
+.u-VCard--site a.u-VCard__item:hover,
+.u-VCard--site a.u-VCard__org:focus,
+.u-VCard--site a.u-VCard__item:focus,
+.u-VCard--site a.u-List__item:hover,
+.u-VCard--site a.u-List__item:focus {
+	border-bottom: 1px solid $linkColor;
+}
+.u-VCard--site .u-VCard__label {
+	color: #fff;
+}
+.u-Masthead__siteName--link:hover, 
+.u-Masthead__siteName--link:focus,
+.u-Masthead__vassar--link:hover,
+.u-Masthead__vassar--link:focus {
+	border-bottom: none;
+}
+
+body{ background: #282828; }
+html { color: $fontColor; background-color:#000 }
+.u-lHeader {
+	background: $u-lHeader--backgroundColor;
+	background-size: 100%;
+}
+.u-lMain { background: #282828 url(../images/container-bg.jpg) repeat-x top left; }		
+.u-NavSite { background: #282828 url(../images/container-bg.jpg) repeat-x top left; }
+.u-NavSite__level--1 .u-NavSite__item  { color: #CDCDC9 }
+.u-NavSite__level--1 .u-NavSite__item:hover,  .u-NavSite__level--1 .u-NavSite__item--isCurrent   { color: #8CDA23 !important; } 
+.gs-bidi-start-align, .gs-snippet { color: $fontColor !important; }
+.u-NavSite__level ul { border-left: 1px solid #515151; } .u-NavSite__item--isOpen .u-NavSite__item {border-bottom: none; color: #fff;
+}
+.u-lFooter {
+	background-color: $u-lFooter--backgroundColor;
+}
+tbody tr:nth-child(odd) {
+      background-color: transparent;
+}
+tbody { 
+	th {
+        color: #fff;
+	}
+	td,
+	th {
+	    border: 1px solid shade($fontColor, 45%);
+	}
+}
+
+/* Search */
+
+.u-Search__submit {
+ 	/*($normal, $hover, $active, $visited, $focus)*/
+	@include background-colors(#616161, #333, #333, #616161, #333);
+	svg { 
+		fill: #fff; 
+	} 
+}
+
+/* Logo SVG Styles */
+
+.path-one { fill: #9A9A9A; }
+@media screen {.path-two { fill: #fff; }}
+.path-three { fill:#9A9A9A;}
+.path-one,
+.path-two,
+.path-three { 
+	-o-transition:fill .1s ease-out, background 1s ease-in;
+	-ms-transition:fill .1s ease-out, background 1s ease-in;
+	-moz-transition:fill .1s ease-out, background 1s ease-in;
+	-webkit-transition:fill .1s ease-out, background 1s ease-in;
+}
+.u-Masthead__siteName--link:hover path {
+   fill: #fff;
+ }
+.u-Masthead__siteName--link:hover path:nth-child(3) {
+   fill: #8CDA1F ;
+}
+@media all and (min-width: $small) {
+	.u-Search__form {
+		background: #616161;
+	}
+	.u-Search__field {
+		background-color: transparent;
+	}
+	.u-Search__field:focus {
+		background-color: #fff;
+		color: #616161;
+	}
+}
+
+/* Additions */
+
+.Module--sidebar.Module--news .Module__link {
+	@include link-colors(#b8b8b4, $linkColorHoverFocus, $linkColorActive, #b8b8b4, $linkColorHoverFocus);
+	border-bottom: 1px solid $linkBorderColor;
+	display: inline;
+}
+.Module--sidebar.Module--news .Module__link:hover {
+	border-bottom: 1px solid $linkColor;
+}
+.u-ArticleListItem__title {
+	@include link-colors($fontColor, $linkColorHoverFocus, $linkColorActive, $fontColor, $linkColorHoverFocus);
+}
+.u-ArticleListItem__summary {
+	@include link-colors(#b8b8b4, $linkColorHoverFocus, $linkColorActive, #b8b8b4, $linkColorHoverFocus);
+}
+.galleria-info-description a {
+	@include link-colors(#fff, $linkColorHoverFocus, $linkColorActive, #fff, $linkColorHoverFocus);
+}
+.u-lAside blockquote {
+	background: #25777A url(../images/quotes_blue.png) no-repeat 0 0;
+	padding: 10px 10px 10px 75px;
+	margin: 0 0 10px 0 ;
+	font-style: normal;
+	font-family: Georgia, serif;
+}
+.Module--sidebar .Module__listItem {
+  border-top: 1px solid $fontColor;
+}
+.u-ScheduleGroup .u-ScheduleEntry {
+    border-bottom: 1px dotted shade($fontColor, 45%);
+}
+.u-ScheduleGroup {
+    border-top: 1px dotted shade($fontColor, 45%);
+}
+.u-Schedule__subTitle {
+	color: $fontColor;
+}
+.u-NavSite__item[class*= icon-],
+.u-NavSite__item[class*= icon-]:hover,
+.u-NavSite__item[class*= icon-]:focus,
+.u-NavSite__item[class*= icon-]:active,
+.u-NavSite__item[class*= icon-]:hover {
+    border-bottom: none;
+}
+.infoHeader,
+.mailLabel,
+#NoteParagraph {
+    color: #fff;
+}
+fieldset {
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px dotted shade($fontColor, 45%);
+    border-top: none;
+}
+#Submit,
+#reset {
+    color: #000;
+    font-weight: $fontWeightBold;
+    background-color: $linkColor;
+    border: none;
+}
+#Submit:hover,
+#Submit:focus,
+#reset:hover,
+#reset:focus {
+    background-color: #fff;
+}
+.icon-instagram svg path[fill="#231F20"] {
+    fill: #fff;
+}
+.icon-instagram svg path[fill="#FFF"] {
+    fill: #000;
+}

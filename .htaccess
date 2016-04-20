@@ -1,0 +1,418 @@
+DirectoryIndex index.html
+
+#ErrorDocument 404 http://designers.vassar.edu/rayschwartz/gamut-2.4/404.html
+
+#Initialize the inlcude path to where all the central Gamut files reside
+php_value include_path /web/sites/depts/collegerelations/web/centralincludes/gamut
+
+# Set version on Gamut you want 
+# /web/sites/depts/collegerelations/web/centralincludes/gamut/V_GAMUT_VERSION
+#SetEnv V_GAMUT_VERSION "2.5.0-dev"
+SetEnv V_GAMUT_VERSION "production"
+
+<IfModule mod_php5.c>
+   php_value short_open_tag 0
+</IfModule>
+ 
+# ----------------------------------------------------------------------
+# Prepend/Append include files 
+# ----------------------------------------------------------------------
+
+# All css files
+<FilesMatch "\.(css)$">
+	php_value auto_prepend_file "css.php"
+	php_value auto_append_file "makeCachedCopy.php"
+</FilesMatch>
+
+# All html files 
+# All js files 
+# Not nav.html
+<FilesMatch "index.php|\.(html|js)$(?<!nav.html)">
+	php_value auto_prepend_file "versionPointer.php"
+	php_value auto_append_file "makeCachedCopy.php"
+</FilesMatch>
+
+####################
+#    DEV-ONLY      #
+####################
+# All html files
+# Not nav.html
+# USED FOR DEVELOPMENT PURPOSES ONLY
+<FilesMatch "\.html$(?<!nav.html)">
+	php_value auto_append_file "bottom.php"
+</FilesMatch>
+####################
+#    DEV-ONLY      #
+####################
+	
+php_value output_buffering 1
+
+# ----------------------------------------------------------------------
+# Rewrites
+# ----------------------------------------------------------------------
+
+<IfModule mod_rewrite.c>
+	
+	Options +FollowSymlinks
+	RewriteEngine on
+	#RewriteBase /
+	#RewriteOptions Inherit
+	
+	  # Duplicate Content /index.html change it to /
+	RewriteCond %{REQUEST_URI} (.*)/index\.html?$ [NC]
+	RewriteRule (.*)$ - [env=rootpath:%1] 
+	RewriteRule (.*)/?index\.html?$ %{ENV:rootpath}/ [R=301,L]
+	
+	# Bios
+	# These 3 lines allow Bios rewrites to work (not sure why)
+	RewriteCond %{REQUEST_FILENAME} -f [OR]
+	RewriteCond %{REQUEST_FILENAME} -d
+	RewriteRule ^.*$ - [L]
+	
+	# Bios
+	RewriteCond %{REQUEST_URI} (.*)/bios/(.+)\.html?$ [NC] 
+	RewriteRule (.*)$ - [env=rootpath:%1] 
+	RewriteRule (.*)bios/(.+)\.html?$ %{ENV:rootpath}/bios/ [L]
+	
+	# Versioned, static files with date/time stamps in URL
+	RewriteCond %{REQUEST_URI} (.*)\.(\d+)\.(js|css|jpg|gif|png)$ [NC] 
+	RewriteRule (.*)\.(\d+)\.(js|css|jpg|gif|png)$ $1.$3 [L]
+
+	#RewriteCond %{REQUEST_URI} /assets/(.*)\.(js|css|jpg|gif|png)$ [NC]  
+	RewriteCond %{REQUEST_URI} assets/(.*)\.(js|css|jpg|gif|png)$ [NC]
+	RewriteRule . http://collegerelations.vassar.edu/centralincludes/gamut/2.5.0-dev/$1 [L]
+	
+	####################
+	#    DEV-ONLY      #
+	####################
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^(.*\.html)$ all.html [L]
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule . all.html [L]
+	####################
+	#    DEV-ONLY      #
+	####################
+		
+	# ADAPTIVE IMAGES
+	
+	# Add any directories you wish to omit from the Adaptive-Images process on a new line, as follows:
+  	# RewriteCond %{REQUEST_URI} !ignore-this-directory
+  	# RewriteCond %{REQUEST_URI} !and-ignore-this-directory-too
+  
+  	# don't apply the AI behaviour to images inside AI's cache folder:
+  	#RewriteCond %{REQUEST_URI} !ai-cache
+    
+  	# Send any GIF, JPG, or PNG request that IS NOT stored inside one of the above directories
+  	# to adaptive-images.php so we can select appropriately sized versions
+  
+  	#RewriteRule \.(?:jpe?g|gif|png)$ adaptive-images.php
+  
+	RewriteCond %{REQUEST_URI} ^(.*)assets/images/.*\.(?:jpe?g|gif|png)$
+	RewriteRule ^(.*)assets/images/.*\.(?:jpe?g|gif|png)$ - [env=subfolder:%1]
+	RewriteCond %{REQUEST_URI} !css
+	RewriteRule ^(.*)assets/images/.*\.(?:jpe?g|gif|png)$ %{ENV:subfolder}assets/components/adaptive-images/index.php
+	#RewriteRule ^(.*)assets/images/.*\.(?:jpe?g|gif|png)$ http://collegerelations.vassar.edu/centralincludes/gamut/2.5.0-dev/assets/components/adaptive-images/index.php
+
+	#RewriteCond %{REQUEST_URI} (.*/)web/?(.*)$ [NC]
+	#RewriteRule (.*)$ - [env=rootpath:%1] 
+	#RewriteRule (.*)$ - [env=restofpath:%2] 
+	##RewriteCond %{REQUEST_FILENAME} -f [OR]
+	##RewriteCond %{REQUEST_FILENAME} -d
+	#RewriteRule ^.+ - [PT,L]
+	#RewriteRule (.*/)web/?(.*)$ %{ENV:rootpath}%{ENV:restofpath} [R=301,L]
+	
+	# Versioned, static files with date/time stamps in URL
+	#RewriteCond %{REQUEST_URI} (.*)/assets/(js|css|images)/(.+)\.(\d+)\.(js|css|jpg|gif|png)$ [NC] 
+	#RewriteRule (.*)$ - [env=rootpath:%1] 
+	#RewriteRule assets/(js|css|images)/(.+)\.(\d+)\.(js|css|jpg|gif|png)$ %{ENV:rootpath}/assets/$1/$2.$4 [L]
+	
+	# News and Announcements
+	RedirectMatch 301 ^announcements(.*) $1/news$2	
+
+	#RewriteRule ^(.+)$ - [env=rootpath:%1] 
+	#RewriteRule ^.+/rss/?$|^rss/?$ %{ENV:rootpath}index.html?news-util=true [NC,L]
+	#RewriteRule ^.+/news-util/?$|^news-util/?$ %{ENV:rootpath}index.html?news-util=true [NC,L]
+	#RewriteCond %{REQUEST_FILENAME} -f [OR]
+	#RewriteCond %{REQUEST_FILENAME} -d
+	#RewriteRule ^.*$ - [PT,L]
+	#RewriteRule ^.*$ index.html
+
+	# web folder
+	#RedirectMatch 301 (.*)/web/?(.*) $1/$2	
+
+	RewriteCond %{REQUEST_URI} ^(.*)/web/?  [NC]
+	RewriteRule ^(.+)$ - [env=rootpath:%1] 
+	RewriteRule ^web(.*)$ %{ENV:rootpath}$1 [R=301,L]
+	
+	#RewriteRule ^web/(.*)$ $1 [r=301,nc]
+	
+	# Block access to hidden files and directories.
+	# This includes directories used by version control systems such as Git and SVN.
+	# https://github.com/h5bp/html5-boilerplate/blob/master/.htaccess
+	RewriteCond %{REQUEST_FILENAME} -f [OR]
+   RewriteCond %{REQUEST_FILENAME} -d
+	RewriteRule "(^|/)\." - [F]
+
+	# Block access to backup and source files.
+	# These files may be left by some text editors and can pose a great security
+	# danger when anyone has access to them.
+	# https://github.com/h5bp/html5-boilerplate/blob/master/.htaccess
+
+	<FilesMatch "(^#.*#|\.(bak|config|dist|fla|inc|ini|log|psd|sh|sql|sw[op])|~)$">
+		 Order allow,deny
+		 Deny from all
+		 Satisfy All
+	</FilesMatch>
+
+	#RewriteCond %{SERVER_PORT}s ^(443(s)|[0-9]+s)$
+	#RewriteRule ^(.+)$ - [env=askapache:%2]
+	
+	# News
+	RewriteRule ^.+/rss/?$|^rss/?$ index.html?news-util=true [NC,L]
+	RewriteRule ^.+/news-util/?$|^news-util/?$ index.html?news-util=true [NC,L]
+	
+	RewriteCond %{REQUEST_URI} (.*)news/(.*) [NC]
+	RewriteRule (.*)$ - [env=rootpath:%1] 
+	RewriteRule (.*)$ - [env=after:%2] 
+	RewriteCond %{REQUEST_FILENAME} -f [OR]
+	RewriteCond %{REQUEST_FILENAME} -d
+	RewriteRule (.*)news/(.*) - [PT,L]
+	RewriteRule (.*)news/(.*) %{ENV:rootpath}news/%{ENV:after}
+	
+</IfModule>
+
+
+# ----------------------------------------------------------------------
+# ----------------------------------------------------------------------
+
+# First stage for global below this line
+
+# ----------------------------------------------------------------------
+# ----------------------------------------------------------------------
+
+
+# ----------------------------------------------------------------------
+# Cross-domain AJAX requests
+# ----------------------------------------------------------------------
+
+# Enable cross-origin AJAX requests.
+# http://code.google.com/p/html5security/wiki/CrossOriginRequestSecurity
+# http://enable-cors.org/
+
+<IfModule mod_headers.c>
+	Header set Access-Control-Allow-Origin "http://vassar.edu"
+</IfModule>
+
+
+# ----------------------------------------------------------------------
+# ETag removal
+# ----------------------------------------------------------------------
+
+# Since we're sending far-future expires headers (see below), ETags can
+# be removed: http://developer.yahoo.com/performance/rules.html#etags.
+
+# `FileETag None` is not enough for every server.
+<IfModule mod_headers.c>
+    Header unset ETag
+</IfModule>
+
+FileETag None
+
+
+# ----------------------------------------------------------------------
+# IE users (Better website experience for)
+# ----------------------------------------------------------------------
+
+# Force IE to render pages in the highest available mode in the various
+# cases when it may not: http://hsivonen.iki.fi/doctype/ie-mode.pdf.
+
+<IfModule mod_headers.c>
+    Header set X-UA-Compatible "IE=edge"
+    # `mod_headers` can't match based on the content-type, however, we only
+    # want to send this header for HTML pages and not for the other resources
+    <FilesMatch "\.(appcache|crx|css|eot|gif|htc|ico|jpe?g|js|m4a|m4v|manifest|mp4|oex|oga|ogg|ogv|otf|pdf|png|safariextz|svgz?|ttf|vcf|webapp|webm|webp|woff|xml|xpi)$">
+        Header unset X-UA-Compatible
+    </FilesMatch>
+</IfModule>
+
+
+# ----------------------------------------------------------------------
+# JavaScript forced to proper content-type
+# ----------------------------------------------------------------------
+
+<IfModule mod_headers.c>
+	<FilesMatch "\.js$">
+		# application/javascript causes expiration header to be access plus 0 seconds so using text/javascript
+		Header set Content-type "text/javascript"
+	</FilesMatch>
+</IfModule>
+
+
+# ----------------------------------------------------------------------
+# MIME type for all files
+# ----------------------------------------------------------------------
+
+<IfModule mod_mime.c>
+
+  # Audio
+    AddType audio/mp4                                   m4a f4a f4b
+    AddType audio/ogg                                   oga ogg
+
+  # JavaScript
+    # Normalize to standard type (it's sniffed in IE anyways):
+    # http://tools.ietf.org/html/rfc4329#section-7.2
+    AddType application/javascript                      js
+
+    AddType application/json                            json
+
+  # Video
+    AddType video/mp4                                   mp4 m4v f4v f4p
+    AddType video/ogg                                   ogv
+    AddType video/webm                                  webm
+    AddType video/x-flv                                 flv
+
+  # Web fonts
+    AddType application/font-woff                       woff
+    AddType application/vnd.ms-fontobject               eot
+
+    # Browsers usually ignore the font MIME types and sniff the content,
+    # however, Chrome shows a warning if other MIME types are used for the
+    # following fonts.
+    AddType application/x-font-ttf                      ttc ttf
+    AddType font/opentype                               otf
+
+    # Make SVGZ fonts work on iPad:
+    # https://twitter.com/FontSquirrel/status/14855840545
+    AddType     image/svg+xml                           svg svgz
+    AddEncoding gzip                                    svgz
+
+  # Other
+    AddType application/octet-stream                    safariextz
+    AddType application/x-chrome-extension              crx
+    AddType application/x-opera-extension               oex
+    AddType application/x-shockwave-flash               swf
+    AddType application/x-web-app-manifest+json         webapp
+    AddType application/x-xpinstall                     xpi
+    AddType application/xml                             atom rdf rss xml
+    AddType image/webp                                  webp
+    AddType image/x-icon                                ico
+	 # htaccess made easy pp51-52
+	 AddType image/vnd.microsoft.icon 				        ico
+    AddType text/cache-manifest                         appcache manifest
+    AddType text/vtt                                    vtt
+    AddType text/x-component                            htc
+    AddType text/x-vcard                                vcf
+
+</IfModule>
+
+
+# ----------------------------------------------------------------------
+# Expires headers (for better cache control)
+# ----------------------------------------------------------------------
+
+# The following expires headers are set pretty far in the future. If you don't
+# control versioning with filename-based cache busting, consider lowering the
+# cache time for resources like CSS and JS to something like 1 week.
+
+<IfModule mod_expires.c>
+
+    ExpiresActive on
+    ExpiresDefault                                      "access plus 1 month"
+
+  # CSS
+    ExpiresByType text/css                              "access plus 1 year"
+
+  # Data interchange
+    ExpiresByType application/json                      "access plus 0 seconds"
+    ExpiresByType application/xml                       "access plus 0 seconds"
+    ExpiresByType text/xml                              "access plus 0 seconds"
+
+  # Favicon (cannot be renamed!)
+	ExpiresByType image/x-ico 							"access plus 1 month"
+	ExpiresByType image/x-icon 							"access plus 1 month"
+
+  # htaccess made easy pp51-52
+	<IfModule mod_mime.c>
+		AddType image/vnd.microsoft.icon .ico
+		ExpiresByType image/vnd.microsoft.icon 			"access plus 1 month"
+	</IfModule>
+	
+  # HTML components (HTCs)
+    ExpiresByType text/x-component                      "access plus 1 month"
+
+  # HTML
+    ExpiresByType text/html                             "access plus 0 seconds"
+
+  # JavaScript
+    ExpiresByType application/x-javascript                "access plus 1 year"
+    ExpiresByType text/javascript                		"access plus 1 year"
+    ExpiresByType application/javascript                "access plus 1 year"
+
+  # Manifest files
+    ExpiresByType application/x-web-app-manifest+json   "access plus 0 seconds"
+    ExpiresByType text/cache-manifest                   "access plus 0 seconds"
+
+  # Media
+    ExpiresByType audio/ogg                             "access plus 1 month"
+    ExpiresByType image/gif                             "access plus 1 month"
+    ExpiresByType image/jpeg                            "access plus 1 month"
+    ExpiresByType image/png                             "access plus 1 month"
+    ExpiresByType video/mp4                             "access plus 1 month"
+    ExpiresByType video/ogg                             "access plus 1 month"
+    ExpiresByType video/webm                            "access plus 1 month"
+
+  # Web feeds
+    ExpiresByType application/atom+xml                  "access plus 1 hour"
+    ExpiresByType application/rss+xml                   "access plus 1 hour"
+
+  # Web fonts
+    ExpiresByType application/font-woff                 "access plus 1 month"
+    ExpiresByType application/x-font-woff 				"access plus 1 month"
+	ExpiresByType application/font-woff2                "access plus 1 month"
+    ExpiresByType application/vnd.ms-fontobject         "access plus 1 month"
+    ExpiresByType application/x-font-ttf                "access plus 1 month"
+    ExpiresByType font/opentype                         "access plus 1 month"
+    ExpiresByType image/svg+xml                         "access plus 1 month"
+
+	<IfModule mod_headers.c>
+		Header unset Pragma
+		Header unset Last-Modified
+		Header append Cache-Control "public, no-transform, must-revalidate"
+	</IfModule>
+	
+</IfModule>
+
+	
+
+# ----------------------------------------------------------------------
+# Parsing
+# ----------------------------------------------------------------------
+
+# parse these filetypes as php
+AddType application/x-httpd-php css html js
+
+
+# ----------------------------------------------------------------------
+# UTF-8 encoding
+# ----------------------------------------------------------------------
+
+# Use UTF-8 encoding for anything served as `text/html` or `text/plain`.
+AddDefaultCharset utf-8
+
+# Force UTF-8 for certain file formats.
+<IfModule mod_mime.c>
+    AddCharset utf-8 .atom .css .js .json .rss .vtt .webapp .xml
+</IfModule>
+
+
+# ----------------------------------------------------------------------
+# Webfont access
+# ----------------------------------------------------------------------
+
+# Allow access from all domains for web fonts
+
+<IfModule mod_headers.c>
+    <FilesMatch "\.(eot|font.css|otf|ttc|ttf|woff)$">
+        Header set Access-Control-Allow-Origin "*"
+    </FilesMatch>
+</IfModule>

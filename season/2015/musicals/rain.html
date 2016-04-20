@@ -1,0 +1,88 @@
+<?php namespace gamut; echo U_DOCTYPE; ?><html>
+
+<?php PageContent::buildHTMLTag(); echo U_HEAD_OPEN; ?>
+
+ <?php echo U_META; ?> 
+
+
+<?php echo U_META_TITLE_OPEN.U_META_TITLE_NON_CMS;?>
+                                                                                        
+Rain - 
+<?php echo U_META_TITLE.U_META_TITLE_CLOSE;?>
+
+
+<?php echo U_HEAD; ?>  
+
+
+<?php echo U_HEAD_CLOSE; flush(); echo U_BODY_OPEN; ?>
+
+<?php echo U_SKIP_LINKS.U_HEADER_OPEN; ?>
+
+
+
+<?php echo U_HEADER; ?>
+
+
+<?php echo U_HEADER_CLOSE.U_MAIN_OPEN.U_CONTENT_OPEN.U_NAV_BREADCRUMBS; ?>
+                                                                                        
+    
+<?php echo U_CONTENT_TITLE_OPEN; ?>
+    Rain
+<?php echo U_CONTENT_TITLE_CLOSE; ?>
+    
+
+
+<?php echo CMS_PAGE_CONTENT; ?>
+<div class="u-ScheduleEntry">
+                                
+                                                        <p class="u-ScheduleEntry__date">July 10 - July 12, 2015</p>
+                <p class="u-ScheduleEntry__location">In the <a href="http://info.vassar.edu/visit/maps/">Martel Theater, Vogelstein Center for Drama and Film</a></p>
+                <p>Book by Sybille Pearson<br/>
+ Music and Lyrics by Michael John LaChiusa<br/>
+ Based on the short story by Somerset Maugham<br/>
+ Directed by Barry Edelstein</p>
+<p>1924. Two married couples find themselves quarantined on a small island in the South Pacific during a torrential storm. Enter Sadie Thompson, a woman with a dark past and a bottle of good whiskey. Secrets are revealed and sexual tensions ignite and explode in this new musical adaptation of the classic Somerset Maugham story. From five-time Tony-nominated composer and lyricist Michael John LaChiusa (<em>Giant, The Wild Party, Marie Christine</em>), Tony-nominated writer Sybille Pearson (<em>Baby, Giant</em>) and director Barry Edelstein (Nathan Englander&#8217;s <em>The Twenty- Seventh Man</em>, Steve Martin&#8217;s <em>The Underpants</em>).</p>
+            
+<?php if(file_exists('../../show-postscript.php')){
+@include('../../show-postscript.php');
+}
+?>
+
+</div>
+
+
+            
+<?php echo U_CONTENT_CLOSE.U_ASIDE_OPEN; ?>
+<div class="sidebar-icons"><!--
+<p><a href="http://vassar.tix.com"><img alt="Tickets" src="/web/assets/img-core/tickets.png" width="260" /></a></p>
+<p><a href="/web/calendar.html"><img alt="Season Calendar" src="/web/assets/img-core/season_calendar.png" width="260" /></a></p>
+-->
+<p><a href="../../../mailinglist/index.html"><img alt="Mail List" src="../../../assets/img-core/mail_list.png" width="260"/></a></p>
+<p><a href="../../../accessibility/index.html"><img alt="Accessibility" src="../../../assets/img-core/accessibility.png" width="260"/></a></p>
+</div>
+<div class="Module Module--sidebar Module--performanceTimes">
+<h2 class="Module__header">Performance Times</h2>
+<ul class="Module__list">
+<li class="Module__listItem">
+Fri, 7/10 at 8:00pm
+</li>
+<li class="Module__listItem">
+Sat, 7/11 at 8:00pm
+</li>
+<li class="Module__listItem">
+Sun, 7/12 at 2:00pm
+</li>
+<li class="Module__listItem">
+Sun, 7/12 at 7:00pm
+</li>
+</ul>
+</div>
+
+
+
+
+
+
+
+<?php echo U_ASIDE_CLOSE.U_MAIN_CLOSE.U_SEARCH.U_NAV.U_FOOTER_OPEN.U_VCARD.U_FOOTER_CLOSE.U_JS_LOCAL.U_BODY_CLOSE; ?>
+</html>

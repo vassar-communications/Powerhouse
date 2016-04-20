@@ -1,0 +1,372 @@
+/*	CONFIG
+	====== */
+/*	TYPOGRAPHY
+	========== */
+/*	LAYOUT
+	====== */
+/* Site breakpoints */
+/* 400px divided by 16px */
+/* 600px divided by 16px */
+/* 800px divided by 16px */
+/* 1000px divided by 16px */
+/* The padding on u-lHeader, u-lMain, u-lFooter, and u-NavSite. */
+/* COLOR 
+	====== */
+/* Basic link colors - these colors also affect the Google Search result link colors */
+/* MODULES
+	======== */
+/* Bios */
+/* Breadcrumbs  */
+/* Footer */
+/* Images */
+/*	Google search results  */
+/* Currently being overridden by something in Google's default CSS */
+/* The numbers that represent pages of search results */
+/* Nav */
+/* level 3 covers Level 3 and up. */
+/* LATEST Modules basic */
+/* Use these variables to place a bg color on side news announcement items */
+/* News  */
+/* Not sure all these color settings are necessary
+$u-ArticleListItem__label--type--color:;
+$u-ArticleListItem__label--dateline__posted--color:;
+$u-ArticleListItem__label--dateline__postedDate--color:f; */
+/* LATEST Moved to Module Basic above
+$u-NewsList__itemContainer--margin: 1em 0;
+$u-NewsList__item--background: transparent;
+$u-NewsList__item--padding: 0; */
+/*	Search
+	------ */
+/*	Up until this point, the search box will be positioned
+	over the masthead, so as not to overlap it. This point
+	depends on how wide the site masthead is. Keep increasing it
+	until the search box no longer overlaps the masthead.
+*/
+/*	Mobile search colors
+	-------------------- */
+/*	Mobile menu colors
+	------------------ */
+/* $MenuBtnColor--activated: #000; */
+/*	Mobile search and menu colors
+	----------------------------- */
+/* The background color of a button, when activated */
+/*	Mobile search colors
+	-------------------- */
+/* The background of the "Vassar College" area */
+/* The background of the search and menu buttons */
+/* The color of the search icon and Menu text */
+/* The color of the space between search and menu */
+/* Don't modify these */
+/* these variables have been hard coded with pixel fallbacks
+when appropriate and added to modules/nav.scss and module/search.scss
+$searchType: Helvetica, Arial, sans-serif;
+$mobileHeaderHeight: 4rem;
+$searchHeight: 2rem;
+$searchPositionTop: 2rem;
+$searchPositionRight: 2rem; */
+/*$ms-ratio: $major-third;*/
+/*	COLOR
+	===== */
+a,
+.u-ArticleListItem__label--dateline {
+  /*link-colors($normal, $hover, $active, $visited, $focus)*/
+  color: #8CDA1F;
+  text-decoration: none;
+  border-bottom: 1px solid #515151;
+  padding-bottom: 0; }
+  a:visited,
+  .u-ArticleListItem__label--dateline:visited {
+    color: #8CDA1F; }
+  a:focus,
+  .u-ArticleListItem__label--dateline:focus {
+    color: #fff; }
+  a:hover,
+  .u-ArticleListItem__label--dateline:hover {
+    color: #fff; }
+  a:active,
+  .u-ArticleListItem__label--dateline:active {
+    color: #25777A; }
+
+a:hover,
+a:focus {
+  border-bottom: 1px solid #8CDA1F; }
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+  color: #fff;
+  border-bottom: 1px solid #515151;
+  padding-bottom: 0; }
+  h1 a:visited, h2 a:visited, h3 a:visited, h4 a:visited, h5 a:visited, h6 a:visited {
+    color: #fff; }
+  h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus {
+    color: #fff; }
+  h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
+    color: #fff; }
+  h1 a:active, h2 a:active, h3 a:active, h4 a:active, h5 a:active, h6 a:active {
+    color: #8CDA1F; }
+
+.u-VCard--site a.u-VCard__org,
+.u-VCard--site a.u-VCard__item,
+.u-VCard--site a.u-List__item,
+.u-VCard--site .u-VCard__item--building {
+  color: #b8b8b4;
+  border-bottom: 1px solid #515151;
+  padding-bottom: 0; }
+  .u-VCard--site a.u-VCard__org:visited,
+  .u-VCard--site a.u-VCard__item:visited,
+  .u-VCard--site a.u-List__item:visited,
+  .u-VCard--site .u-VCard__item--building:visited {
+    color: #b8b8b4; }
+  .u-VCard--site a.u-VCard__org:focus,
+  .u-VCard--site a.u-VCard__item:focus,
+  .u-VCard--site a.u-List__item:focus,
+  .u-VCard--site .u-VCard__item--building:focus {
+    color: #fff; }
+  .u-VCard--site a.u-VCard__org:hover,
+  .u-VCard--site a.u-VCard__item:hover,
+  .u-VCard--site a.u-List__item:hover,
+  .u-VCard--site .u-VCard__item--building:hover {
+    color: #fff; }
+  .u-VCard--site a.u-VCard__org:active,
+  .u-VCard--site a.u-VCard__item:active,
+  .u-VCard--site a.u-List__item:active,
+  .u-VCard--site .u-VCard__item--building:active {
+    color: #25777A; }
+
+.u-VCard--site .u-VCard__item--building:hover,
+.u-VCard--site .u-VCard__item--building:focus,
+.u-NavSite__item:hover,
+.u-NavSite__item:focus {
+  border-bottom: none; }
+
+h2, h3, h4, h5, h6 {
+  color: #fff; }
+
+h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover,
+h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus,
+.u-VCard--site a.u-VCard__org:hover,
+.u-VCard--site a.u-VCard__item:hover,
+.u-VCard--site a.u-VCard__org:focus,
+.u-VCard--site a.u-VCard__item:focus,
+.u-VCard--site a.u-List__item:hover,
+.u-VCard--site a.u-List__item:focus {
+  border-bottom: 1px solid #8CDA1F; }
+
+.u-VCard--site .u-VCard__label {
+  color: #fff; }
+
+.u-Masthead__siteName--link:hover,
+.u-Masthead__siteName--link:focus,
+.u-Masthead__vassar--link:hover,
+.u-Masthead__vassar--link:focus {
+  border-bottom: none; }
+
+body {
+  background: #282828; }
+
+html {
+  color: #b8b8b4;
+  background-color: #000; }
+
+.u-lHeader {
+  background: #000 url(../images/header-bg.jpg) no-repeat top left;
+  background-size: 100%; }
+
+.u-lMain {
+  background: #282828 url(../images/container-bg.jpg) repeat-x top left; }
+
+.u-NavSite {
+  background: #282828 url(../images/container-bg.jpg) repeat-x top left; }
+
+.u-NavSite__level--1 .u-NavSite__item {
+  color: #CDCDC9; }
+
+.u-NavSite__level--1 .u-NavSite__item:hover, .u-NavSite__level--1 .u-NavSite__item--isCurrent {
+  color: #8CDA23 !important; }
+
+.gs-bidi-start-align, .gs-snippet {
+  color: #b8b8b4 !important; }
+
+.u-NavSite__level ul {
+  border-left: none; }
+
+.u-NavSite__item--isOpen .u-NavSite__item {
+  border-bottom: none;
+  color: #fff; }
+
+.u-lFooter {
+  background-color: #000; }
+
+tbody tr:nth-child(odd) {
+  background-color: transparent; }
+
+tbody th {
+  color: #fff; }
+tbody td,
+tbody th {
+  border: 1px solid #656563; }
+
+table.u-calendarMonth {
+  border-bottom: 1px solid #656563; }
+  table.u-calendarMonth td,
+  table.u-calendarMonth th {
+    border-bottom: none; }
+
+/* Search */
+.u-Search__submit {
+  /*($normal, $hover, $active, $visited, $focus)*/
+  background: #616161; }
+  .u-Search__submit:visited {
+    background: #616161; }
+  .u-Search__submit:focus {
+    background: #333; }
+  .u-Search__submit:hover {
+    background: #333; }
+  .u-Search__submit:active {
+    background: #333; }
+  .u-Search__submit svg {
+    fill: #fff; }
+
+/* Logo SVG Styles */
+.path-one {
+  fill: #9A9A9A; }
+
+.path-two {
+  fill: #fff; }
+
+.path-three {
+  fill: #9A9A9A; }
+
+.path-one,
+.path-two,
+.path-three {
+  -o-transition: fill .1s ease-out, background 1s ease-in;
+  -ms-transition: fill .1s ease-out, background 1s ease-in;
+  -moz-transition: fill .1s ease-out, background 1s ease-in;
+  -webkit-transition: fill .1s ease-out, background 1s ease-in; }
+
+.u-Masthead__siteName--link:hover path {
+  fill: #fff; }
+
+.u-Masthead__siteName--link:hover path:nth-child(3) {
+  fill: #8CDA1F; }
+
+@media all and (min-width: 800px) {
+  table.u-calendarMonth {
+    border-bottom: none; }
+    table.u-calendarMonth td,
+    table.u-calendarMonth th {
+      border: 1px solid #656563; }
+    table.u-calendarMonth thead td {
+      border: none; } }
+@media all and (min-width: 37.5em) {
+  .u-Search__form {
+    background: #616161; }
+
+  .u-Search__field {
+    background-color: transparent; }
+
+  .u-Search__field:focus {
+    background-color: #fff;
+    color: #616161; } }
+/* Additions */
+.Module--sidebar.Module--news .Module__link {
+  color: #b8b8b4;
+  border-bottom: 1px solid #515151;
+  display: inline; }
+  .Module--sidebar.Module--news .Module__link:visited {
+    color: #b8b8b4; }
+  .Module--sidebar.Module--news .Module__link:focus {
+    color: #fff; }
+  .Module--sidebar.Module--news .Module__link:hover {
+    color: #fff; }
+  .Module--sidebar.Module--news .Module__link:active {
+    color: #25777A; }
+
+.Module--sidebar.Module--news .Module__link:hover {
+  border-bottom: 1px solid #8CDA1F; }
+
+.u-ArticleListItem__title {
+  color: #b8b8b4; }
+  .u-ArticleListItem__title:visited {
+    color: #b8b8b4; }
+  .u-ArticleListItem__title:focus {
+    color: #fff; }
+  .u-ArticleListItem__title:hover {
+    color: #fff; }
+  .u-ArticleListItem__title:active {
+    color: #25777A; }
+
+.u-ArticleListItem__summary {
+  color: #b8b8b4; }
+  .u-ArticleListItem__summary:visited {
+    color: #b8b8b4; }
+  .u-ArticleListItem__summary:focus {
+    color: #fff; }
+  .u-ArticleListItem__summary:hover {
+    color: #fff; }
+  .u-ArticleListItem__summary:active {
+    color: #25777A; }
+
+.galleria-info-description a {
+  color: #fff; }
+  .galleria-info-description a:visited {
+    color: #fff; }
+  .galleria-info-description a:focus {
+    color: #fff; }
+  .galleria-info-description a:hover {
+    color: #fff; }
+  .galleria-info-description a:active {
+    color: #25777A; }
+
+.u-lAside blockquote {
+  background: #25777A url(../images/quotes_blue.png) no-repeat 0 0;
+  padding: 10px 10px 10px 75px;
+  margin: 0 0 10px 0;
+  font-style: normal;
+  font-family: Georgia, serif; }
+
+.Module--sidebar .Module__listItem {
+  border-top: 1px solid #b8b8b4; }
+
+.u-ScheduleGroup .u-ScheduleEntry {
+  border-bottom: 1px dotted #656563; }
+
+.u-ScheduleGroup {
+  border-top: 1px dotted #656563; }
+
+.u-Schedule__subTitle {
+  color: #b8b8b4; }
+
+.u-NavSite__item.icon-facebook,
+.u-NavSite__item.icon-twitter,
+.u-NavSite__item.icon-facebook:hover,
+.u-NavSite__item.icon-twitter:hover,
+.u-NavSite__item.icon-facebook:focus,
+.u-NavSite__item.icon-twitter:focus,
+.u-NavSite__item.icon-facebook:active,
+.u-NavSite__item.icon-twitter:active {
+  border-bottom: none; }
+
+.infoHeader,
+.mailLabel,
+#NoteParagraph {
+  color: #fff; }
+
+fieldset {
+  border-right: none;
+  border-left: none;
+  border-bottom: 1px dotted #656563;
+  border-top: none; }
+
+#Submit,
+#reset {
+  color: #000;
+  font-weight: 400;
+  background-color: #8CDA1F;
+  border: none; }
+
+#Submit:hover,
+#Submit:focus,
+#reset:hover,
+#reset:focus {
+  background-color: #fff; }

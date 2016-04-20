@@ -1,0 +1,201 @@
+<?php namespace gamut; echo U_DOCTYPE; ?><html>
+
+<?php PageContent::buildHTMLTag(); echo U_HEAD_OPEN; ?>
+
+ <?php echo U_META; ?> 
+
+
+<?php echo U_META_TITLE_OPEN.U_META_TITLE_NON_CMS;?>
+                                                                                        
+Season Schedule - 
+<?php echo U_META_TITLE.U_META_TITLE_CLOSE;?>
+
+
+<?php echo U_HEAD; ?>  
+
+
+<?php echo U_HEAD_CLOSE; flush(); echo U_BODY_OPEN; ?>
+
+<?php echo U_SKIP_LINKS.U_HEADER_OPEN; ?>
+
+<style type="text/css">
+.u-NavSite__level--1 ul { display: none; }
+.u-NavSite__itemContainer.u-NavSite__item--isOpen { border-bottom: 1px dotted #666 !important; }
+.u-lAside .u-Figure img {
+  width: auto;
+  max-width: 60%;
+}
+</style>
+
+<?php echo U_HEADER; ?>
+
+
+<?php echo U_HEADER_CLOSE.U_MAIN_OPEN.U_CONTENT_OPEN.U_NAV_BREADCRUMBS; ?>
+                                                                                        
+    
+<?php echo U_CONTENT_TITLE_OPEN; ?>
+    2015 Season Schedule
+<?php echo U_CONTENT_TITLE_CLOSE; ?>
+    
+
+<ul class="jumplinks__list jumplinks__level jumplinks__level--1">
+                                                                                                                                                                                        <li class="jumplinks__listitem"><a class="jumplinks__link" href="#mainstage">Mainstage</a></li>
+                                                                                                                                                                                                    <li class="jumplinks__listitem"><a class="jumplinks__link" href="#musicals">Musical Workshops</a></li>
+                                                                                                                                                                        <li class="jumplinks__listitem"><a class="jumplinks__link" href="#inside-look">Inside Look</a></li>
+                                                                                                                                            <li class="jumplinks__listitem"><a class="jumplinks__link" href="#readings">Readings Festivals</a></li>
+                                                                                                                                                                                                    <li class="jumplinks__listitem"><a class="jumplinks__link" href="#apprentice">Apprentice Company</a></li>
+                                    </ul>
+
+<?php echo CMS_PAGE_CONTENT; ?>
+<p>Online box office opens for <span>subscription</span>&#160;sales May 12</p>
+<p>Please note: All programs and artists subject to change.</p>
+<ul>
+<li><a href="../about/index.html">About the Powerhouse Theater</a></li>
+<li><a href="../boxoffice/index.html">Box Office Information</a></li>
+</ul>
+<div class="u-ScheduleGroup">
+                                                                                                                                                                                        <div class="u-ScheduleList">
+            <h3 class="u-Schedule__subTitle" id="mainstage">Mainstage</h3>
+                                    <div class="u-ScheduleEntry">
+                        
+            
+            <?php if(file_exists(PATH_LOCAL_ABS.'/season/2015/mainstage/the-unbuilt-city-include.php')){
+                @include(PATH_LOCAL_ABS.'/season/2015/mainstage/the-unbuilt-city-include.php');
+            }
+            ?>
+            
+            </div>
+                                <div class="u-ScheduleEntry">
+                        
+            
+            <?php if(file_exists(PATH_LOCAL_ABS.'/season/2015/mainstage/the-light-years-include.php')){
+                @include(PATH_LOCAL_ABS.'/season/2015/mainstage/the-light-years-include.php');
+            }
+            ?>
+            
+            </div>
+                                    </div>
+                                                                                                                                                                                                    <div class="u-ScheduleList">
+            <h3 class="u-Schedule__subTitle" id="musicals">Musical Workshops</h3>
+                                    <div class="u-ScheduleEntry">
+                        
+            
+            <?php if(file_exists(PATH_LOCAL_ABS.'/season/2015/musicals/rain-include.php')){
+                @include(PATH_LOCAL_ABS.'/season/2015/musicals/rain-include.php');
+            }
+            ?>
+            
+            </div>
+                                <div class="u-ScheduleEntry">
+                        
+            
+            <?php if(file_exists(PATH_LOCAL_ABS.'/season/2015/musicals/loving-v-virginia-include.php')){
+                @include(PATH_LOCAL_ABS.'/season/2015/musicals/loving-v-virginia-include.php');
+            }
+            ?>
+            
+            </div>
+                                <div class="u-ScheduleEntry">
+                        
+            
+            <?php if(file_exists(PATH_LOCAL_ABS.'/season/2015/musicals/noir-include.php')){
+                @include(PATH_LOCAL_ABS.'/season/2015/musicals/noir-include.php');
+            }
+            ?>
+            
+            </div>
+                                    </div>
+                                                                                                                                                                        <div class="u-ScheduleList">
+            <h3 class="u-Schedule__subTitle" id="inside-look">Inside Look Workshops</h3>
+                                    <div class="u-ScheduleEntry">
+                        
+            
+            <?php if(file_exists(PATH_LOCAL_ABS.'/season/2015/inside-look/desire-include.php')){
+                @include(PATH_LOCAL_ABS.'/season/2015/inside-look/desire-include.php');
+            }
+            ?>
+            
+            </div>
+                                <div class="u-ScheduleEntry">
+                        
+            
+            <?php if(file_exists(PATH_LOCAL_ABS.'/season/2015/inside-look/the-last-match-include.php')){
+                @include(PATH_LOCAL_ABS.'/season/2015/inside-look/the-last-match-include.php');
+            }
+            ?>
+            
+            </div>
+                                    </div>
+                                                                                                                                            <div class="u-ScheduleList">
+            <h3 class="u-Schedule__subTitle" id="readings">Readings Festivals</h3>
+                                    <div class="u-ScheduleEntry">
+                        
+            
+            <?php if(file_exists(PATH_LOCAL_ABS.'/season/2015/readings/festivals-include.php')){
+                @include(PATH_LOCAL_ABS.'/season/2015/readings/festivals-include.php');
+            }
+            ?>
+            
+            </div>
+                                    </div>
+                                                                                                                                                                                                    <div class="u-ScheduleList">
+            <h3 class="u-Schedule__subTitle" id="apprentice">The Powerhouse Apprentice Company Performances</h3>
+                                    <div class="u-ScheduleEntry">
+                        
+            
+            <?php if(file_exists(PATH_LOCAL_ABS.'/season/2015/apprentice/outdoor-classics-include.php')){
+                @include(PATH_LOCAL_ABS.'/season/2015/apprentice/outdoor-classics-include.php');
+            }
+            ?>
+            
+            </div>
+                                <div class="u-ScheduleEntry">
+                        
+            
+            <?php if(file_exists(PATH_LOCAL_ABS.'/season/2015/apprentice/soundpainting-include.php')){
+                @include(PATH_LOCAL_ABS.'/season/2015/apprentice/soundpainting-include.php');
+            }
+            ?>
+            
+            </div>
+                                <div class="u-ScheduleEntry">
+                        
+            
+            <?php if(file_exists(PATH_LOCAL_ABS.'/season/2015/apprentice/workshop-include.php')){
+                @include(PATH_LOCAL_ABS.'/season/2015/apprentice/workshop-include.php');
+            }
+            ?>
+            
+            </div>
+                                    </div>
+                                    </div>
+
+
+
+            
+<?php echo U_CONTENT_CLOSE.U_ASIDE_OPEN; ?>
+<div class="sidebar-icons"><!--
+<p><a href="http://vassar.tix.com"><img alt="Tickets" src="/web/assets/img-core/tickets.png" width="260" /></a></p>
+<p><a href="/web/calendar.html"><img alt="Season Calendar" src="/web/assets/img-core/season_calendar.png" width="260" /></a></p>
+-->
+<p><a href="../mailinglist/index.html"><img alt="Mail List" src="../assets/img-core/mail_list.png" width="260"/></a></p>
+<p><a href="../accessibility/index.html"><img alt="Accessibility" src="../assets/img-core/accessibility.png" width="260"/></a></p>
+</div>
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+
+<p><span>Proud sponsors of the 2015 Powerhouse Theater Season</span></p>
+<p><a href="http://www.wdst.com/"><span><div class="figure u-Figure "><figure><img alt="" class="u-Figure__image" src="../assets/images/sponsors/wdst.png" width="168"/></figure></div></span></a></p>
+<a href="http://www.biggayhudsonvalley.com/"><div class="figure u-Figure "><figure><img alt="" class="u-Figure__image" src="../assets/images/sponsors/bghv.png" width="150"/></figure></div></a>
+<a href="http://www.valleytable.com/"><div class="figure u-Figure "><figure><img alt="" class="u-Figure__image" src="../assets/images/sponsors/hudson-valley-table-magazine.jpg" width="100"/></figure></div></a>
+<a href="http://www.chronogram.com/"><div class="figure u-Figure "><figure><img alt="" class="u-Figure__image" src="../assets/images/sponsors/chronogram.png" width="150"/></figure></div></a>
+<a href="http://www.countryandabroadmagazine.com/"><div class="figure u-Figure "><figure><img alt="" class="u-Figure__image" src="../assets/images/sponsors/sidebar-country.gif" width="150"/></figure></div></a>
+<a href="http://www.poughkeepsiejournal.com/"><div class="figure u-Figure "><figure><img alt="" class="u-Figure__image" src="../assets/images/sponsors/pj.png" width="150"/></figure></div></a>
+
+
+
+
+
+<?php echo U_ASIDE_CLOSE.U_MAIN_CLOSE.U_SEARCH.U_NAV.U_FOOTER_OPEN.U_VCARD.U_FOOTER_CLOSE.U_JS_LOCAL.U_BODY_CLOSE; ?>
+</html>

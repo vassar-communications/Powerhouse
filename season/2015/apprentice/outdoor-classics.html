@@ -1,0 +1,96 @@
+<?php namespace gamut; echo U_DOCTYPE; ?><html>
+
+<?php PageContent::buildHTMLTag(); echo U_HEAD_OPEN; ?>
+
+ <?php echo U_META; ?> 
+
+
+<?php echo U_META_TITLE_OPEN.U_META_TITLE_NON_CMS;?>
+                                                                                        
+Performances of the Classics - 
+<?php echo U_META_TITLE.U_META_TITLE_CLOSE;?>
+
+
+<?php echo U_HEAD; ?>  
+
+
+<?php echo U_HEAD_CLOSE; flush(); echo U_BODY_OPEN; ?>
+
+<?php echo U_SKIP_LINKS.U_HEADER_OPEN; ?>
+
+
+
+<?php echo U_HEADER; ?>
+
+
+<?php echo U_HEADER_CLOSE.U_MAIN_OPEN.U_CONTENT_OPEN.U_NAV_BREADCRUMBS; ?>
+                                                                                        
+    
+<?php echo U_CONTENT_TITLE_OPEN; ?>
+    Performances of the Classics
+<?php echo U_CONTENT_TITLE_CLOSE; ?>
+    
+
+
+<?php echo CMS_PAGE_CONTENT; ?>
+<div class="u-ScheduleEntry">
+                                
+                                                        <p class="u-ScheduleEntry__date">July 10 - July 25, 2015</p>
+                <p class="u-ScheduleEntry__location">In the <a href="http://info.vassar.edu/visit/maps/">Vassar Farm and Ecological Preserve</a></p>
+                <p><strong>Twelfth Night</strong> / July 10, 11, 12<br/>
+ By William Shakespeare<br/>
+ Directed by Andrew Willis-Woodward</p>
+<p><strong>Vinegar Tom</strong> / July 17, 18, 19<br/>
+ By Caryl Churchill<br/>
+ Directed by Brian McManamon</p>
+<p><strong>Much Ado About Nothing</strong> / July 23, 24, 25<br/>
+ By William Shakespeare<br/>
+ Directed by Jessi Hill</p>
+<p>Thursday, Friday, and Sunday performances at 7pm, Saturdays at 6pm</p>
+            
+<?php if(file_exists('../../show-postscript.php')){
+@include('../../show-postscript.php');
+}
+?>
+
+</div>
+
+
+            
+<?php echo U_CONTENT_CLOSE.U_ASIDE_OPEN; ?>
+<div class="sidebar-icons"><!--
+<p><a href="http://vassar.tix.com"><img alt="Tickets" src="/web/assets/img-core/tickets.png" width="260" /></a></p>
+<p><a href="/web/calendar.html"><img alt="Season Calendar" src="/web/assets/img-core/season_calendar.png" width="260" /></a></p>
+-->
+<p><a href="../../../mailinglist/index.html"><img alt="Mail List" src="../../../assets/img-core/mail_list.png" width="260"/></a></p>
+<p><a href="../../../accessibility/index.html"><img alt="Accessibility" src="../../../assets/img-core/accessibility.png" width="260"/></a></p>
+</div>
+<div class="Module Module--sidebar Module--performanceTimes">
+<h2 class="Module__header">Performance Times</h2>
+<ul class="Module__list">
+<li class="Module__listItem">
+<a class="Module__link" href="http://google.com">
+Fri, 6/26 at 8:00pm
+</a>
+</li>
+<li class="Module__listItem">
+<a class="Module__link" href="http://google.com">
+Wed, 6/3 at 8:00pm
+</a>
+</li>
+<li class="Module__listItem">
+<a class="Module__link" href="http://google.com">
+Tue, 6/30 at 8:00pm
+</a>
+</li>
+</ul>
+</div>
+
+
+
+
+
+
+
+<?php echo U_ASIDE_CLOSE.U_MAIN_CLOSE.U_SEARCH.U_NAV.U_FOOTER_OPEN.U_VCARD.U_FOOTER_CLOSE.U_JS_LOCAL.U_BODY_CLOSE; ?>
+</html>

@@ -1,0 +1,110 @@
+<?php namespace gamut; echo U_DOCTYPE; ?><html>
+
+<?php PageContent::buildHTMLTag(); echo U_HEAD_OPEN; ?>
+
+ <?php echo U_META; ?> 
+
+
+<?php echo U_META_TITLE_OPEN.U_META_TITLE_NON_CMS;?>
+                                                                                        
+The Light Years - 
+<?php echo U_META_TITLE.U_META_TITLE_CLOSE;?>
+
+
+<?php echo U_HEAD; ?>  
+
+
+<?php echo U_HEAD_CLOSE; flush(); echo U_BODY_OPEN; ?>
+
+<?php echo U_SKIP_LINKS.U_HEADER_OPEN; ?>
+
+
+
+<?php echo U_HEADER; ?>
+
+
+<?php echo U_HEADER_CLOSE.U_MAIN_OPEN.U_CONTENT_OPEN.U_NAV_BREADCRUMBS; ?>
+                                                                                        
+    
+<?php echo U_CONTENT_TITLE_OPEN; ?>
+    The Light Years
+<?php echo U_CONTENT_TITLE_CLOSE; ?>
+    
+
+
+<?php echo CMS_PAGE_CONTENT; ?>
+<div class="u-ScheduleEntry">
+                                
+                                                        <p class="u-ScheduleEntry__date">July 23 - August 2, 2015</p>
+                <p class="u-ScheduleEntry__location">In the <a href="http://info.vassar.edu/visit/maps/">Powerhouse Theater</a></p>
+                <p>Written by Hannah Bos and Paul Thureen<br/>
+ Developed and directed by Oliver Butler</p>
+<p>The award-winning play-making company The Debate Society (<em>Jacuzzi, Blood Play, Buddy Cop 2</em>) crafts a haunted love story spanning 40 years. Set at the Chicago World&#8217;s Fairs of 1893 and 1933, <em>The Light Years</em> revolves around Steele MacKaye, a forgotten theatrical impresario commissioned to design and build the Spectatorium, a 12,000 seat theater at the 1893 fair. His audacious vision &#8211; and its life-changing consequences &#8211; paint a spectacularly vivid world of forgotten futures and the indomitable spirit of invention.</p>
+            
+<?php if(file_exists('../../show-postscript.php')){
+@include('../../show-postscript.php');
+}
+?>
+
+</div>
+
+
+            
+<?php echo U_CONTENT_CLOSE.U_ASIDE_OPEN; ?>
+<div class="sidebar-icons"><!--
+<p><a href="http://vassar.tix.com"><img alt="Tickets" src="/web/assets/img-core/tickets.png" width="260" /></a></p>
+<p><a href="/web/calendar.html"><img alt="Season Calendar" src="/web/assets/img-core/season_calendar.png" width="260" /></a></p>
+-->
+<p><a href="../../../mailinglist/index.html"><img alt="Mail List" src="../../../assets/img-core/mail_list.png" width="260"/></a></p>
+<p><a href="../../../accessibility/index.html"><img alt="Accessibility" src="../../../assets/img-core/accessibility.png" width="260"/></a></p>
+</div>
+<div class="Module Module--sidebar Module--performanceTimes">
+<h2 class="Module__header">Performance Times</h2>
+<ul class="Module__list">
+<li class="Module__listItem">
+Thu, 7/23 at 8:00pm
+</li>
+<li class="Module__listItem">
+Fri, 7/24 at 8:00pm
+</li>
+<li class="Module__listItem">
+Sat, 7/25 at 2:00pm
+</li>
+<li class="Module__listItem">
+Sat, 7/25 at 8:00pm
+</li>
+<li class="Module__listItem">
+Sun, 7/26 at 2:00pm
+</li>
+<li class="Module__listItem">
+Sun, 7/26 at 7:00pm
+</li>
+<li class="Module__listItem">
+Tue, 7/28 at 8:00pm
+</li>
+<li class="Module__listItem">
+Wed, 7/29 at 8:00pm
+</li>
+<li class="Module__listItem">
+Thu, 7/30 at 8:00pm
+</li>
+<li class="Module__listItem">
+Sat, 8/1 at 2:00pm
+</li>
+<li class="Module__listItem">
+Sat, 8/1 at 8:00pm
+</li>
+<li class="Module__listItem">
+Sun, 8/2 at 2:00pm
+</li>
+</ul>
+</div>
+
+
+
+
+
+
+
+<?php echo U_ASIDE_CLOSE.U_MAIN_CLOSE.U_SEARCH.U_NAV.U_FOOTER_OPEN.U_VCARD.U_FOOTER_CLOSE.U_JS_LOCAL.U_BODY_CLOSE; ?>
+</html>
