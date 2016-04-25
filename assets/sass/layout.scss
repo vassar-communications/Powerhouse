@@ -253,40 +253,41 @@ width: 5.825%;
 /* LAYOUT */
 
 @media screen {
-		.modulesArea {
-			overflow: hidden;
-			clear: both;
-			text-align:center;
-		}
-		.Module__label, dd {
-			margin: 0;
-			padding: 0;
-			display: inline-block;
-		}
-		.Module__header {
-			margin-top: 0;
-		}
-		.Module__label {
-			margin-right: .25em;
-		}
-		.Module__list {
-			margin: 0;
-			list-style:none;
-			padding-left:0;
-		}
-		.Module__listItem {
-			padding: .3em 0;
-			margin:0;
-		}
-		.Module__listItem:last-of-type {
-			margin-bottom: 1em;
-		}
-		.Module__name {
-			margin-bottom: 0;
-		}
-		.moreLink {
-			display: block;
-	}
+    .modulesArea {
+        overflow: hidden;
+        clear: both;
+        text-align:center;
+    }
+    .Module__label, dd {
+        margin: 0;
+        padding: 0;
+        display: inline-block;
+    }
+    .Module__header {
+        margin-top: 0;
+    }
+    .Module__label {
+        margin-right: .25em;
+    }
+    .Module__list {
+        margin: 0;
+        list-style:none;
+        padding-left:0;
+    }
+    .Module__listItem {
+        padding: .3em 0;
+        margin:0;
+    }
+    .Module__listItem:last-of-type {
+        margin-bottom: 1em;
+    }
+    .Module__name {
+        margin-bottom: 0;
+    }
+    .moreLink,
+    .Module--sidebar .moreLink {
+        display: inline-block;
+    }
 
 }
 @media all and (min-width: $small) {
@@ -309,9 +310,6 @@ width: 5.825%;
 /* COLOR */
 
 .modulesArea {
- 	a	{
-		border-bottom: none;
-	}
 	.Module__headerLink {
 		@include link-colors(
 			$sidebarModule__header--linkColor, 
@@ -343,4 +341,17 @@ width: 5.825%;
 .modulesArea b,
 .modulesArea p {
 	@include v-pixel-fallback("font-size", 0.889rem);
+}
+/* bway and beyond */
+.Module--bway figcaption,
+.Module--bway .u-Figure a .Module__link {
+    display: inline;
+}
+.Module--sidebar {
+    .Module__listItem {
+        border-top: none;
+    }
+    a {
+        border-bottom: 1px solid #515151;
+    }
 }

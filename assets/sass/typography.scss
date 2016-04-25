@@ -187,7 +187,7 @@ strong {
 	text-transform: uppercase;
 }
 .u-ArticleListItem {
-  margin-bottom: .6em;
+  margin-bottom: 2em;
 }
 .jumplinks__link {
     font-size: .8em;
@@ -262,4 +262,8 @@ fieldset {
 .u-NavSite__item[class*= icon-]:active {
     font-size: 1em;
     text-transform: capitalize;
+}
+/* bway and beyond */
+.Module--bway {
+    padding: 1em 1em .5em;
 }

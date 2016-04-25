@@ -20,6 +20,9 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 	border-bottom: 1px solid $linkBorderColor;
 	padding-bottom: 0;
 }
+.u-ArticleListItem__link:link {
+    border-bottom: none;
+}
 .u-VCard--site a.u-VCard__org,
 .u-VCard--site a.u-VCard__item,
 .u-VCard--site a.u-List__item,
@@ -155,9 +158,6 @@ tbody {
 	font-style: normal;
 	font-family: Georgia, serif;
 }
-.Module--sidebar .Module__listItem {
-  border-top: 1px solid $fontColor;
-}
 .u-ScheduleGroup .u-ScheduleEntry {
     border-bottom: 1px dotted shade($fontColor, 45%);
 }
@@ -203,4 +203,21 @@ fieldset {
 }
 .icon-instagram svg path[fill="#FFF"] {
     fill: #000;
+}
+/* bway and beyond */
+.Module--bway {
+    border: 1px solid #484848;
+}
+.Module--bway .u-Figure a:link .Module__link,
+.Module--bway .u-Figure a:visited .Module__link {
+    color: #b8b8b4;
+    border-bottom: 1px solid #515151;
+}
+.Module--bway .u-Figure a:active .Module__link {
+    color: #25777A
+}
+.Module--bway .u-Figure a:focus .Module__link,
+.Module--bway .u-Figure a:hover .Module__link {
+    border-bottom: 1px solid #8CDA1F;
+    color:#fff;
 }
