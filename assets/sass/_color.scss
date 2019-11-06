@@ -1,4 +1,4 @@
-@import "_imports";
+//@import "_imports";
 
 /*	COLOR
 	===== */
@@ -69,6 +69,44 @@ html { color: $fontColor; background-color:#000 }
 }
 .u-lMain { background: #282828 url(../images/container-bg.jpg) repeat-x top left; }		
 .u-NavSite { background: #282828 url(../images/container-bg.jpg) repeat-x top left; }
+
+.gf- body
+{
+    background: transparent;
+}
+
+.gf- .PageContent
+{
+    background: #282828;
+}
+
+
+@media screen and (min-width: $small)
+{
+    .gf- .u-Masthead__siteName
+    {
+        margin-top: 0;
+    }
+}
+
+@media screen and (min-width: $medium)
+{
+    .gf- .PageContent
+    {
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+}
+
+@media screen and (min-width: 79em)
+{
+    .gf- .PageContent
+    {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
 .u-NavSite__level--1 .u-NavSite__item  { color: #CDCDC9 }
 .u-NavSite__level--1 .u-NavSite__item:hover,  .u-NavSite__level--1 .u-NavSite__item--isCurrent   { color: #8CDA23 !important; } 
 .gs-bidi-start-align, .gs-snippet { color: $fontColor !important; }
