@@ -3,6 +3,16 @@
 /*	COLOR
 	===== */
 
+[href^='https://app.getacceptd.com/powerhousetheater'] svg
+{
+    width: .8rem;
+}
+
+[href^='https://app.getacceptd.com/powerhousetheater'] svg path
+{
+    fill: #fff;
+}
+
 a,
 .u-ArticleListItem__label--dateline {
 	/*link-colors($normal, $hover, $active, $visited, $focus)*/
